@@ -13,14 +13,13 @@ app.get('/api/health', (req, res) => {
 
 // serve static files(html, css, js, etc.)
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 
 // POST - /api/login - login a user
 app.post('/api/login', (req, res) => {
     console.log(req.body);
     res.json({
-        message: "User is now logged in",
-        user: req.body.username,
-        password: req.body.password
+        message: "User is now logged in"
     });
 });
 
